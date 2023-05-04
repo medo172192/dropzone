@@ -50,3 +50,40 @@ Dropzone.autoDiscover = false;
 
 
         });
+
+
+
+
+
+public function MultipleImages(Request $request)
+    {
+        $valid = Validator::make($request->file('file'),[
+            'file.*' =>"required|image|mimes:png,jpg,jpeg"
+        ]);
+
+        if ($valid->fails()){
+            return $this->catchErrors(['file' => $valid->errors()]);
+        }
+
+        if ($request->hasFile('file')){
+
+            $path = base_path() . '/public/uploads/city/';
+            $name = $request->country_code.'/'.$request->city_name .'_'. rand(0,1000000);
+            $image =  $request->file('file')[0];
+
+            $request->file('file')[0]->move( $path,$name . '.'.$image->getClientOriginalExtension());
+
+            $save = GalleryCity::create([
+                'path' =>'/uploads/city/'.$name. '.'.$image->getClientOriginalExtension() ,
+                'city_id'=> $request->city_id
+            ]);
+            if ($save){
+                return response()->json(['status' =>"success","response"  =>$path],200);
+            }else{
+                return response()->json(['status' =>"success","response"  =>'error'],401);
+            }
+
+        }else{
+            return $this->catchErrors(['file' => ['empty']]);
+        }
+    }
