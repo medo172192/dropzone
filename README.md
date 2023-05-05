@@ -319,7 +319,7 @@ dropzone.select("#kt_dropzonejs_example_1")
 ```javascript
 .subscribe() // Execute dropzone 
 .complete(file=>{}) //event complete addedfiles and after send
-.addedFile(file=>{}) //event complete addedfiles and after send
+.addedFile(file=>{}) // in case start adding the file
 ```
 
 
