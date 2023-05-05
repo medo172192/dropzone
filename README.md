@@ -183,7 +183,146 @@ myDropzone.on("complete", function(file) {
   
 });
 
+
 ```
+
+
+
+
+
+## Install  Dropzone\Libaray
+
+
+```javascript
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/basic.min.css">
+
+ <script src="jquery.js">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
+ <script src="dropzoneLib.js">
+ 
+
+ 
+
+```
+
+
+## Dropzone\Libaray
+
+
+```javascript
+var dropzone = new DropzoneLib();
+dropzone.select("#kt_dropzonejs_example_1")
+        .url('/')
+        .setParam('id',1)
+        .subscribe()
+        .addedFile(file=>{
+            console.log('start added file');
+        })
+        .success((file,res)=>{
+            console.log('success');
+        })
+        .error((file,res)=>{
+            console.log('error');
+        })
+        .complete(file=>{
+            console.log('complete');
+        })
+
+
+```
+
+
+## send one request with multple data
+
+```javascript
+var dropzone = new DropzoneLib();
+dropzone.select("#kt_dropzonejs_example_1")
+        .url('/')
+        .multiple() // add this function
+        .subscribe()
+```
+
+## set configrations
+
+```javascript
+var dropzone = new DropzoneLib();
+dropzone.select("#kt_dropzonejs_example_1")
+        .url('/')
+        .set('paramName','files')
+        .subscribe()
+```
+
+## add dropzone action
+
+```javascript
+var dropzone = new DropzoneLib();
+dropzone.action(Dropzone.autoDiscover=false)
+dropzone.select("#kt_dropzonejs_example_1")
+        .url('/')
+        .subscribe()
+```
+
+## add dropzone events
+
+```javascript
+var dropzone = new DropzoneLib();
+dropzone.action(Dropzone.autoDiscover=false)
+dropzone.select("#kt_dropzonejs_example_1")
+        .url('/')
+        .event('addedfile',(file)=>{})
+        .subscribe()
+```
+
+## add dropzone accept
+
+```javascript
+var dropzone = new DropzoneLib();
+dropzone.action(Dropzone.autoDiscover=false)
+dropzone.select("#kt_dropzonejs_example_1")
+        .url('/')
+        .accept((file,done)=>{
+            if (file)
+        })
+        .subscribe()
+```
+
+
+
+## add dropzone extensions
+
+```javascript
+var dropzone = new DropzoneLib();
+dropzone.action(Dropzone.autoDiscover=false)
+dropzone.select("#kt_dropzonejs_example_1")
+        .url('/')
+        .extensions('.png,.jpg')
+        .subscribe()
+```
+
+## set dropzone parameter
+
+```javascript
+var dropzone = new DropzoneLib();
+dropzone.action(Dropzone.autoDiscover=false)
+dropzone.select("#kt_dropzonejs_example_1")
+        .url('/')
+        .setParam('_token',"{{ csrf_token() }}")
+        .subscribe()
+```
+
+
+## Background
+
+```javascript
+.subscribe() // Execute dropzone 
+.complete() //event complete addedfiles and after send
+```
+
+
+
 
 
 ## Dropzone/Options
