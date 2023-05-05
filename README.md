@@ -235,7 +235,7 @@ dropzone.select("#kt_dropzonejs_example_1")
 ```
 
 
-## send one request with multple data
+## send one request with multiple data
 
 ```javascript
 var dropzone = new DropzoneLib();
