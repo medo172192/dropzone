@@ -190,7 +190,7 @@ myDropzone.on("complete", function(file) {
 
 
 
-## Install  Dropzone\Libaray
+## Install  Dropzone\Library
 
 
 ```javascript
@@ -209,7 +209,7 @@ myDropzone.on("complete", function(file) {
 ```
 
 
-## Dropzone\Libaray
+## Dropzone\Library
 
 
 ```javascript
@@ -318,7 +318,7 @@ dropzone.select("#kt_dropzonejs_example_1")
 
 ```javascript
 .subscribe() // Execute dropzone 
-.complete(file=>{}) //event complete addedfiles and after send
+.complete(file=>{}) //event complete  , It works after adding the files and  send request
 .addedFile(file=>{}) // in case start adding the file
 ```
 
